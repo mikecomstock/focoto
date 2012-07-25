@@ -9,8 +9,13 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
+
+# For heroku
 gem 'heroku'
 gem 'foreman'
+
+# For incoming email from postmark
+gem 'postmark-mitt'
 
 # Gems used only for assets and not required
 # in production environments by default.
