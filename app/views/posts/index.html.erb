@@ -7,6 +7,7 @@
     <th>From name</th>
     <th>From email</th>
     <th>Subject</th>
+    <th>Text Body</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,7 @@
     <td><%= post.from_name %></td>
     <td><%= post.from_email %></td>
     <td><%= post.subject %></td>
+    <td><%= post.text_body %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
