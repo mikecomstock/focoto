@@ -9,7 +9,8 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
-
+gem 'heroku'
+gem 'foreman'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +25,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :production do
+  gem 'activerecord-postgresql-adapter'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
