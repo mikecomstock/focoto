@@ -136,7 +136,6 @@ DEPENDENCIES
   heroku
   jquery-rails
   mysql2
-  pg
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
   therubyracer
