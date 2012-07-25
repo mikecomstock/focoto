@@ -11,7 +11,7 @@ class IncomingController < ActionController::Base
     end
 
     post = Post.create_from_postmark(email)
-    render :inline => post.to_json
+    render :json => post.to_json
   end
   
 end

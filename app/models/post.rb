@@ -5,13 +5,14 @@ class Post < ActiveRecord::Base
     #author = User.find_by_api_email(mitt.to)
     #handle_no_author # send an email back saying we couldn't find them
     post = new
-    post.to_email = mitt.to
-    post.from = mitt.from
+    post.subject = mitt.subject
+    post.to_name = mitt.to_name
+    post.to_email = mitt.to_email
+    post.from_name = mitt.from_name
     post.from_email = mitt.from_email
     post.text_body = mitt.text_body
     post.html_body = mitt.html_body
     post.headers = mitt.headers.to_s
-    #post.title = mitt.subject
     #post.author = author
     #post.photo = mitt.attachments.first.read
     #post.message_id = mitt.message_id # Make sure we don't process the same email twice
