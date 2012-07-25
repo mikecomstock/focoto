@@ -1,4 +1,6 @@
 Focoto::Application.routes.draw do
+  resources :posts
+
   root to: 'static_pages#home'
 
   match '/photos',    to: 'static_pages#photos'
