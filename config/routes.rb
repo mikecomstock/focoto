@@ -2,6 +2,7 @@ Focoto::Application.routes.draw do
   root to: 'static_pages#home'
 
   match '/photos',    to: 'static_pages#photos'
+  match '/incoming/postmark' => 'incoming#postmark'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
