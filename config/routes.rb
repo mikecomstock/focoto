@@ -1,10 +1,13 @@
 Focoto::Application.routes.draw do
+
+  resources :boards
   resources :posts
 
-  root to: 'static_pages#home'
+  root to: 'boards#new'
 
   match '/photos',    to: 'static_pages#photos'
   match '/incoming/postmark' => 'incoming#postmark'
+  match '/:name' => 'boards#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

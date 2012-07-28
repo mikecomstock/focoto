@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @board.name %>
+</p>
+
+<% @board.posts.order('created_at desc').each do |post| %>
+  <div>
+    <img src="<%= post.photo.url :medium %>" alt="" />
+  </div>  
+<% end %>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>
+
+<script type="text/javascript">
+  setTimeout(function(){ location.reload(); }, 5000);
+</script>

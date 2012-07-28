@@ -29,13 +29,13 @@ class Post < ActiveRecord::Base
     #post.author = author
     #post.message_id = mitt.message_id # Make sure we don't process the same email twice
 
-    name =  mitt.attachments.first.source['Name']
+    attachment = mitt.attachments.first.source
+    name =  attachment['Name']
     first = MCTempfile.new(name, :encoding => 'ascii-8bit')
-    first.content_type = mitt.attachments.first.source['ContentType']
-    decoded = Base64.decode64 mitt.attachments.first.source['Content']
+    first.content_type = attachment['ContentType']
+    decoded = Base64.decode64 attachment['Content']
     first.write decoded
     first.flush
-
     post.photo = first
 
     post.save
