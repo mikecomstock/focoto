@@ -5,6 +5,11 @@
   <%= @board.name %>
 </p>
 
+<p>
+  <b>Email:</b>
+  <%= @board.email %>
+</p>
+
 <% @board.posts.order('created_at desc').each do |post| %>
   <div>
     <img src="<%= post.photo.url :medium %>" alt="" />

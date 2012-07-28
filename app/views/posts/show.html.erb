@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Board:</b>
+  <%= link_to @post.board.name, @post.board %>
+</p>
+
+<p>
   <b>To name:</b>
   <%= @post.to_name %>
 </p>

@@ -10,7 +10,7 @@ Focoto::Application.routes.draw do
 
   match '/photos',    to: 'static_pages#photos'
   match '/incoming/postmark' => 'incoming#postmark'
-  match '/:name' => 'boards#show'
+  match '/:email_box' => 'boards#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

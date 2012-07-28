@@ -13,7 +13,7 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @board = Board.find_by_name(params[:name] + '@focoto.com') if params[:name]
+    @board = Board.find_by_email(params[:email_box] + '@focoto.com') if params[:email_box]
     @board = Board.find(params[:id]) if params[:id]
 
     respond_to do |format|
