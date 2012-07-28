@@ -17,6 +17,10 @@ gem 'foreman'
 # For incoming email from postmark
 gem 'postmark-mitt'
 
+# For image processing and uploading to S3
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

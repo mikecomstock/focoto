@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725050912) do
+ActiveRecord::Schema.define(:version => 20120726042922) do
 
   create_table "posts", :force => true do |t|
     t.string   "to_email"
@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(:version => 20120725050912) do
     t.text     "text_body"
     t.text     "html_body"
     t.text     "headers"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "to_name"
     t.string   "subject"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end
