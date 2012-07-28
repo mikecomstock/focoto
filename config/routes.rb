@@ -1,6 +1,9 @@
 Focoto::Application.routes.draw do
 
-  resources :boards
+  resources :boards do
+    resources :posts
+  end
+   
   resources :posts
 
   root to: 'boards#new'

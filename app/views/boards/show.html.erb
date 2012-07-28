@@ -15,5 +15,11 @@
 <%= link_to 'Back', boards_path %>
 
 <script type="text/javascript">
-  setTimeout(function(){ location.reload(); }, 5000);
+  $(function(){ 
+      var id = <%= @board.id %>;
+      console.log('id', id);
+      var board = new Focoto.Models.Board({ id: id });
+      console.log(board);
+      board.fetch();
+  });
 </script>
