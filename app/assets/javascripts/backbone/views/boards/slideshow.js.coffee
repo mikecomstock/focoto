@@ -10,33 +10,29 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
 
   postAdd: (post) ->
     slide = $(_.template(@t, { p: post.attributes }))
-    shortestColumn = @columns.first()
-    shortestHeight = shortestColumn.height()
+    minHeight = _.min(@columnHeights)
+    minIndex = _.indexOf @columnHeights, minHeight
+    shortestColumn = @columns.get(minIndex)
 
-    @columns.each (i, c) ->
-      console.log i, c
-      column = $(c)
-      height = column.height()
-      console.log 'column', column, height
-      if height < shortestHeight
-        shortestColumn = column
-        shortestHeight = height
-
-    slide.hide()
+    slide.css 'opacity', 0
     slide.prependTo shortestColumn
-    slide.fadeIn(3000)
+    @columnHeights[minIndex] += slide.outerHeight()
+    slide.css 'opacity', 1
 
   t: '<div class="post">
     <img src="<%= p.photo_info.medium %>"/>
-    <p class="caption"><%= p.from_name %>: <%= p.subject %></p>
+    <p class="caption"><%= p.from_name %>: <strong><%= p.subject %></strong></p>
   </div>'
 
   colWidth: 300
   columns: []
+  columnHeights: []
 
   render: ->
     @$el.empty()
     @columns.length = 0
+    @columnHeights.length = 0
+
     containerWidth = @$el.width()
     numCols = Math.max(Math.floor(containerWidth / @colWidth), 1)
     totalColWidth = numCols * @colWidth
@@ -46,16 +42,10 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
 
     @createColumn num for num in [1..numCols]
     @columns = @$('.column')
-    
-    console.log 'adding posts'
     @postAdd post for post in @collection.models
-    
 
   createColumn: (i) ->
     column = $('<div class="column">').appendTo(@$el)
+    @columnHeights.push 0
     column.css('width', @colWidth)
     column.css('margin-left', @marginWidth)
-
-    
-
-
