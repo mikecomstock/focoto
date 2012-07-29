@@ -16,6 +16,7 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
 
     slide.css 'opacity', 0
     slide.prependTo shortestColumn
+    # TODO: this doesn't work because the image isn't loaded yet
     @columnHeights[minIndex] += slide.outerHeight()
     slide.css 'opacity', 1
 
