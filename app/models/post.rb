@@ -44,6 +44,15 @@ class Post < ActiveRecord::Base
     post.save
     post
   end
+
+  def photo_info
+    {
+      :original => photo.url(:original),
+      :medium => photo.url(:medium),
+      :thumb => photo.url(:thumb)
+    }
+  end
+
 end
 
 class MCTempfile < Tempfile

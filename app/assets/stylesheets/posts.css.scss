@@ -1,3 +1,15 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+
+.fluid {
+  @include clearfix;
+  .post {
+    float: left; padding: 10px; margin: 10px;
+    border: 1px solid #999; background-color: #E5E5E5;
+    .caption {
+      text-align: center;
+    }
+  }
+}
