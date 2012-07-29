@@ -15,7 +15,8 @@ class Post < ActiveRecord::Base
       :large => '1920x1080',
       :medium => '300x9999',
       :thumb => '100x100#'
-    }
+    },
+    :source_file_options => {:all => '-auto-orient'}
 
   def self.create_from_postmark(mitt)
     #author = User.find_by_api_email(mitt.to)
