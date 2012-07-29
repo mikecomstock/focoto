@@ -12,8 +12,9 @@ class Post < ActiveRecord::Base
       :secret_access_key => 'XPd03D9m7LK0WEL/JprU3eUpofJffQMCLJNVf64X'
     },
     :styles => {
-      :medium => '300x300',
-      :thumb => '100x100'
+      :large => '1920x1080',
+      :medium => '300x9999',
+      :thumb => '100x100#'
     }
 
   def self.create_from_postmark(mitt)
@@ -48,6 +49,7 @@ class Post < ActiveRecord::Base
   def photo_info
     {
       :original => photo.url(:original),
+      :large => photo.url(:large),
       :medium => photo.url(:medium),
       :thumb => photo.url(:thumb)
     }

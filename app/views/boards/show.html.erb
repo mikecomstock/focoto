@@ -26,7 +26,6 @@
 
       var posts = new Focoto.Collections.PostsCollection();
       var fluid = new Focoto.Views.Boards.Fluid({ el: $('.fluid'), collection: posts });
-      //fluid.render();
 
       //var slideshow = new Focoto.Views.Boards.Slideshow({ el: $('.slideshow'), collection: posts });
 
@@ -38,9 +37,7 @@
         posts.fetch({add:true});
       }, 4000);
 
-      posts.fetch({add:true, success: function(){
-        //slideshow.render();
-      }});
+      posts.fetch({add:true});
 
   });
 </script>

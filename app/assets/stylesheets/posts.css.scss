@@ -5,11 +5,16 @@
 
 .fluid {
   @include clearfix;
+  .column {
+    @include clearfix;
+    min-height: 100px; float: left; 
+  }
   .post {
-    float: left; padding: 10px; margin: 10px;
-    border: 1px solid #999; background-color: #E5E5E5;
+    padding: 10px;
+    background-color: #E5E5E5; margin-bottom: 10px;
+    box-shadow: 1px 1px 1px 1px #CCC;
     .caption {
-      text-align: center;
+      text-align: center; margin: 0;
     }
   }
 }
