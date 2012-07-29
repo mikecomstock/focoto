@@ -22,7 +22,7 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
 
   t: '<div class="post">
     <img src="<%= p.photo_info.medium %>"/>
-    <p class="caption"><%= p.from_name %><strong><%= p.subject ? ": " + p.subject : "" %></strong></p>
+    <p class="caption"><%= p.from_name %><%= p.subject ? ":" : "" %> <strong><%= p.subject %></strong></p>
   </div>'
 
   colWidth: 300
