@@ -22,9 +22,7 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
         shortestColumn = column
         shortestHeight = height
 
-    slide.hide()
     slide.prependTo shortestColumn
-    slide.fadeIn(3000)
 
   t: '<div class="post">
     <img src="<%= p.photo_info.medium %>"/>
