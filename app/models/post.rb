@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
       :access_key_id => 'AKIAI2Y2EHAZC37EHMOQ',
       :secret_access_key => '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'
     },
+    :s3_protocol => 'https',
     :styles => {
       :large => '1920x1080',
       :medium => '300x9999',
