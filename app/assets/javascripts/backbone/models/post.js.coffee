@@ -7,4 +7,3 @@ class Focoto.Models.Post extends Backbone.Model
 
 class Focoto.Collections.PostsCollection extends Backbone.Collection
   model: Focoto.Models.Post
-  url: '/posts'

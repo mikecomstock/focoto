@@ -17,6 +17,7 @@
 
 <script type="text/javascript">
   $(function(){ 
+      var id = <%= @board.id %>;
      /* var id = <%= @board.id %>;
       console.log('id', id);
       var board = new Focoto.Models.Board({ id: id });
@@ -24,6 +25,7 @@
       board.fetch(); */
 
       var posts = new Focoto.Collections.PostsCollection();
+      posts.url = '/boards/' + id + '/posts';
       var fluid = new Focoto.Views.Boards.Fluid({ el: $('.fluid'), collection: posts });
 
       //var slideshow = new Focoto.Views.Boards.Slideshow({ el: $('.slideshow'), collection: posts });
