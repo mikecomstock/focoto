@@ -4,8 +4,12 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
 
   initialize: ->
     _.bindAll this
+    @fade = true
     @render()
-    $(window).resize @render
+    $(window).resize =>
+      @fade = false
+      @render()
+      @fade = true
     @collection.on 'add', @postAdd, @
 
   postAdd: (post) ->
@@ -14,11 +18,11 @@ class Focoto.Views.Boards.Fluid extends Backbone.View
     minIndex = _.indexOf @columnHeights, minHeight
     shortestColumn = @columns.get(minIndex)
 
-    slide.css 'opacity', 0
+    slide.css 'opacity', 0 if @fade
     slide.prependTo shortestColumn
     # TODO: this doesn't work because the image isn't loaded yet
     @columnHeights[minIndex] += slide.outerHeight()
-    slide.css 'opacity', 1
+    slide.css 'opacity', 1 if @fade
 
   t: '<div class="post">
     <img src="<%= p.photo_info.medium %>"/>
