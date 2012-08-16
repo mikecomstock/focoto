@@ -1,3 +1,21 @@
 == Welcome to Focoto
 
 Let your guests tell the story, through their photos.
+
+Many couples set out disposable cameras at their wedding receptions. Guests use these cameras to take photos throughout the evening, and all of the cameras are collected at the end of the night. They get developed, and the result is a bunch of crowd-sourced photos of the wedding reception.
+
+With focoto, guests simply take a photo using their smartphone, and they email that photo to a certain address. The address us chosen by the couple getting married, typically something like 'somename@focoto.com'. A stream of the photos can be displayed at the reception in real time, and they can all be viewed and downloaded (or converted to Facebook albums) later.
+
+It's simple, with no app for guests to download.
+
+== Tech
+
+The flow I've set up is something like this:
+
+* Users sign up from the home page. The Stripe gem will be used to charge a small amount for each email address.
+* Couples will tell their guests (with a placecard or something) to email photos to 'somename@focoto.com'.
+* Google Apps hosts email for focoto, and a catch-all address receives all email. The catch-all account forwards to an 'incoming' address from Postmark (http://postmarkapp.com).
+* The Postmark service converts the email into a JSON representation, and POSTs it to a callback url, hosted by focoto.
+* IncomingController.rb handles the POST. The first attached photo is converted into a type that the Paperclip gem can use, and Paperclip is configured to store the image (after rotating and resizing) into an S3 bucket. Some metadata about the image (like what email it belongs to) is stored in the local database.
+* The focoto.com/boards/somename (which is just BoardsController > Show) polls for new images every 4 seconds.
+* New images are added to a Backbone.js collection when they come in. A Backbone view renders them into a Pinterest-style layout (see slideshow.js.coffee).
