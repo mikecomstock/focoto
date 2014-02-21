@@ -22,8 +22,6 @@ GEM
       activesupport (= 3.2.6)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-postgresql-adapter (0.0.1)
-      pg
     activeresource (3.2.6)
       activemodel (= 3.2.6)
       activesupport (= 3.2.6)
@@ -92,7 +90,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
-    pg (0.14.0)
     polyglot (0.3.3)
     postmark-mitt (0.0.11)
       json_pure
@@ -155,7 +152,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgresql-adapter
   aws-sdk
   bootstrap-sass (= 2.0.0)
   coffee-rails (~> 3.2.1)

@@ -15,8 +15,7 @@ development:
   database: focoto_development
   pool: 5
   username: root
-  password: Welcome1
-  socket: /var/run/mysqld/mysqld.sock
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,8 +27,7 @@ test:
   database: focoto_test
   pool: 5
   username: root
-  password: Welcome1
-  socket: /var/run/mysqld/mysqld.sock
+  password:
 
 production:
   adapter: mysql2

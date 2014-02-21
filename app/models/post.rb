@@ -6,10 +6,10 @@ class Post < ActiveRecord::Base
 
   has_attached_file :photo,
     :storage => :s3,
-    :bucket => 'focoto-dev',
+    :bucket => ENV['FOCOTO_S3_BUCKET'],
     :s3_credentials => {
-      :access_key_id => 'AKIAI2Y2EHAZC37EHMOQ',
-      :secret_access_key => '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'
+      :access_key_id => ENV['S3_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
     },
     :s3_protocol => 'https',
     :styles => {
